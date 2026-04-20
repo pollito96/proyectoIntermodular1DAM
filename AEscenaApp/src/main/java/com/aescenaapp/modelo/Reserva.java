@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Reserva {
-    
+
     private int reservaId;
     private LocalDateTime fechaReserva;
 

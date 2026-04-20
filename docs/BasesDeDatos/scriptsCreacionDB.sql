@@ -6,7 +6,7 @@ CREATE TABLE USUARIO (
     email VARCHAR(255) NOT NULL UNIQUE,
     pass VARCHAR(255) NOT NULL,
     nombre VARCHAR(100) NOT NULL,
-    estado BOOLEAN NOT NULL,
+    estado BOOLEAN NOT NULL DEFAULT true,
     fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -73,3 +73,18 @@ CREATE TABLE RESERVA (
 
     UNIQUE (id_usuario, id_sesion)
 );
+
+INSERT INTO USUARIO (email, pass, nombre)
+VALUES 
+('admin@gmail.com', 'Qwer1234_', 'admin'),
+('profe@gmail.com', 'Qwer1234_', 'profe'),
+('cliente@gmail.com', 'Qwer1234_', 'cliente');
+
+INSERT INTO USUARIO_ROL (id_usuario, id_rol)
+VALUES 
+(1, 1),
+(1, 2),
+(1, 3),
+(2, 1),
+(2, 2),
+(3, 1);
