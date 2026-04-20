@@ -1,50 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" prefHeight="600" prefWidth="900" spacing="10" style="-fx-padding: 30;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="com.aescenaapp.controlador.LoginControlador">
-   <VBox alignment="CENTER" spacing="15.0">
-      <children>
-         <Label contentDisplay="CENTER" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="AEscena" />
-      
-        <Label contentDisplay="CENTER" style="-fx-font-size: 20px;" text="Login" />
-      </children>
-      <VBox.margin>
-         <Insets bottom="70.0" top="70.0" />
-      </VBox.margin>
-   </VBox>
-   <VBox alignment="CENTER" maxWidth="400.0" spacing="10.0">
-      <children>
-         <VBox alignment="CENTER_LEFT">
-            <children>
-            
-              <Label text="Email" />
-              <TextField fx:id="emailField" maxWidth="400.0" promptText="ejemplo@gmail.com" />
-            </children>
-         </VBox>
-         <VBox alignment="CENTER_LEFT">
-            <children>
-            
-              <Label text="Contraseña" />
-              <PasswordField fx:id="passwordField" maxWidth="400.0" promptText="Contraseña" />
-            </children>
-         </VBox>
-         <HBox alignment="CENTER" spacing="20.0">
-            <children>
-            
-              <Button onAction="#login" text="Iniciar sesión" />
-              <Button onAction="#redireccionRegistro" text="Crear cuenta" />
-            </children>
-         </HBox>
-      
-        <Label fx:id="errorLabel" textFill="red" />
-      </children>
-   </VBox>
+<VBox alignment="CENTER"
+      prefHeight="600"
+      prefWidth="900"
+      spacing="20"
+      style="-fx-background-color: #2c3e50;"
+      xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.aescenaapp.controlador.LoginControlador">
+
+    <VBox alignment="CENTER" spacing="5">
+        <Label text="AEscena"
+               style="-fx-font-size: 28px;
+                      -fx-font-weight: bold;
+                      -fx-text-fill: white;" />
+
+        <Label text="Login"
+               style="-fx-font-size: 16px;
+                      -fx-text-fill: #bdc3c7;" />
+    </VBox>
+
+    <VBox alignment="CENTER"
+          spacing="12"
+          maxWidth="320"
+          style="-fx-background-color: #34495e;
+                 -fx-padding: 25;
+                 -fx-background-radius: 10;">
+
+        <Label text="Email"
+               style="-fx-text-fill: white;" />
+
+        <TextField fx:id="emailField"
+                   promptText="ejemplo@gmail.com"
+                   style="-fx-background-radius: 5;
+                          -fx-padding: 8;" />
+
+        <Label text="Contraseña"
+               style="-fx-text-fill: white;" />
+
+        <PasswordField fx:id="passwordField"
+                       promptText="Contraseña"
+                       style="-fx-background-radius: 5;
+                              -fx-padding: 8;" />
+
+        <HBox spacing="10" alignment="CENTER">
+
+            <Button text="Iniciar sesión"
+                    onAction="#login"
+                    style="-fx-background-color: #1abc9c;
+                           -fx-text-fill: white;
+                           -fx-background-radius: 5;
+                           -fx-cursor: hand;" />
+
+            <Button text="Crear cuenta"
+                    onAction="#redireccionRegistro"
+                    style="-fx-background-color: #3498db;
+                           -fx-text-fill: white;
+                           -fx-background-radius: 5;
+                           -fx-cursor: hand;" />
+
+        </HBox>
+
+        <Label fx:id="errorLabel"
+               textFill="#e74c3c"
+               style="-fx-padding: 5;" />
+
+    </VBox>
 
 </VBox>

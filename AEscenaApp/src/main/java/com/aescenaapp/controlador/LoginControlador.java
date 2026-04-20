@@ -1,14 +1,16 @@
 package com.aescenaapp.controlador;
 
+import com.aescenaapp.modelo.Rol;
 import com.aescenaapp.modelo.Usuario;
 import com.aescenaapp.servicio.UsuarioServicio;
+import com.aescenaapp.util.GestorNavegacion;
+import com.aescenaapp.util.GestorSesion;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+
+import java.util.List;
 
 public class LoginControlador {
     @FXML private TextField emailField;
@@ -20,35 +22,29 @@ public class LoginControlador {
     @FXML
     private void login() {
 
-        String email = emailField.getText();
-        String pass = passwordField.getText();
+        Usuario u = usuarioServicio.login(
+                emailField.getText(),
+                passwordField.getText()
+        );
 
-        Usuario usuario = usuarioServicio.login(email, pass);
-
-        if (usuario == null) {
+        if (u == null) {
             errorLabel.setText("Credenciales incorrectas");
-        } else {
-            errorLabel.setText("Login correcto: " + usuario.getNombre());
-
-            // aquí después navegaremos a dashboard
+            return;
         }
+
+        GestorSesion.setUsuario(u);
+
+        GestorNavegacion.cambiarVista(
+                "/com/aescenaapp/index.fxml",
+                emailField
+        );
     }
     @FXML
     private void redireccionRegistro() {
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/aescenaapp/registro.fxml")
-            );
+        boolean ok = GestorNavegacion.cambiarVista("/com/aescenaapp/registro.fxml", emailField);
 
-            Parent root = loader.load();
-
-            Stage stage = (Stage) emailField.getScene().getWindow();
-            stage.getScene().setRoot(root);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            errorLabel.setText("Error al abrir el formulario de registro");
+        if (!ok) {
+            errorLabel.setText("No se pudo abrir el registro");
         }
-
     }
 }

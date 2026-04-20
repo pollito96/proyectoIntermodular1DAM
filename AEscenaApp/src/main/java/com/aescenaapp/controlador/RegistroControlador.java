@@ -1,6 +1,7 @@
 package com.aescenaapp.controlador;
 
 import com.aescenaapp.servicio.UsuarioServicio;
+import com.aescenaapp.util.GestorNavegacion;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,10 +10,14 @@ import javafx.stage.Stage;
 
 public class RegistroControlador {
 
-    @FXML private TextField emailField;
-    @FXML private TextField nombreField;
-    @FXML private PasswordField passwordField;
-    @FXML private Label errorLabel;
+    @FXML
+    private TextField emailField;
+    @FXML
+    private TextField nombreField;
+    @FXML
+    private PasswordField passwordField;
+    @FXML
+    private Label errorLabel;
 
     private UsuarioServicio usuarioServicio = new UsuarioServicio();
 
@@ -46,21 +51,13 @@ public class RegistroControlador {
             errorLabel.setText("Error al registrar usuario");
         }
     }
+
     @FXML
     private void redireccionLogin() {
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/aescenaapp/login.fxml")
-            );
+        boolean ok = GestorNavegacion.cambiarVista("/com/aescenaapp/login.fxml", emailField);
 
-            Parent root = loader.load();
-
-            Stage stage = (Stage) emailField.getScene().getWindow();
-            stage.getScene().setRoot(root);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            errorLabel.setText("Error al abrir el login");
+        if (!ok) {
+            errorLabel.setText("No se pudo abrir el login");
         }
 
     }
