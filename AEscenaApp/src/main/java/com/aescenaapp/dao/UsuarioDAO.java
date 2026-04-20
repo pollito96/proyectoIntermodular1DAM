@@ -3,15 +3,13 @@ package com.aescenaapp.dao;
 import com.aescenaapp.modelo.Rol;
 import com.aescenaapp.modelo.Usuario;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioDAO {
 
-    public Usuario login(String email, String pass) {
+     public Usuario login(String email, String pass) {
 
         String sql = "SELECT * FROM USUARIO WHERE email = ? AND pass = ? AND estado = true";
 
@@ -67,23 +65,52 @@ public class UsuarioDAO {
         return null;
     }
 
-    public boolean registrar(String email, String nombre, String pass) {
+    public boolean registrarUsuario(Usuario u) {
 
-        String sql = "INSERT INTO USUARIO (email, pass, nombre, estado) VALUES (?, ?, ?, true)";
+        String sql = """
+            INSERT INTO USUARIO (email, pass, nombre)
+            VALUES (?, ?, ?)
+        """;
 
-        try (Connection conn = ConnectionFactory.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (Connection conn = ConnectionFactory.getConnection()) {
 
-            ps.setString(1, email);
-            ps.setString(2, pass);
-            ps.setString(3, nombre);
+            PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            return ps.executeUpdate() > 0;
+            ps.setString(1, u.getEmail());
+            ps.setString(2, u.getPass());
+            ps.setString(3, u.getNombre());
+
+            int affected = ps.executeUpdate();
+
+            if (affected == 0) return false;
+
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                int id = rs.getInt(1);
+
+                asignarRol(id, 1, conn); //CLIENTE por defecto
+            }
+
+            return true;
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return false;
+    }
+
+    private void asignarRol(int idUsuario, int idRol, Connection conn) throws SQLException {
+
+        String sql = """
+        INSERT INTO USUARIO_ROL (id_usuario, id_rol)
+        VALUES (?, ?)
+    """;
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, idUsuario);
+        ps.setInt(2, idRol);
+
+        ps.executeUpdate();
     }
 }

@@ -15,15 +15,8 @@ public class UsuarioServicio {
         return usuarioDAO.login(email, pass);
     }
 
-    public boolean registrar(String email, String nombre, String pass) {
-
-        if (email == null || email.isBlank() ||
-                nombre == null || nombre.isBlank() ||
-                pass == null || pass.isBlank()) {
-            return false;
-        }
-
-        return usuarioDAO.registrar(email, nombre, pass);
+    public boolean registrar(Usuario u) {
+        return usuarioDAO.registrarUsuario(u);
     }
 }
 

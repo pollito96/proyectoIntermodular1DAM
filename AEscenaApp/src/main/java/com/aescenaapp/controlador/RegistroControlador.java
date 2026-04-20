@@ -1,5 +1,6 @@
 package com.aescenaapp.controlador;
 
+import com.aescenaapp.modelo.Usuario;
 import com.aescenaapp.servicio.UsuarioServicio;
 import com.aescenaapp.util.GestorNavegacion;
 import javafx.fxml.FXML;
@@ -28,20 +29,32 @@ public class RegistroControlador {
         String nombre = nombreField.getText();
         String pass = passwordField.getText();
 
-
-        // VALIDACIÓN BÁSICA
         if (email.isBlank() || nombre.isBlank() || pass.isBlank()) {
             errorLabel.setText("Todos los campos son obligatorios");
             return;
         }
 
-        boolean registrado = usuarioServicio.registrar(email, nombre, pass);
+        if (!email.contains("@")) {
+            errorLabel.setText("Email no válido");
+            return;
+        }
+
+        if (pass.length() < 6) {
+            errorLabel.setText("La contraseña es demasiado corta");
+            return;
+        }
+
+        Usuario u = new Usuario();
+        u.setEmail(email);
+        u.setNombre(nombre);
+        u.setPass(pass);
+
+        boolean registrado = usuarioServicio.registrar(u);
 
         if (registrado) {
             errorLabel.setStyle("-fx-text-fill: green;");
             errorLabel.setText("Usuario registrado correctamente");
 
-            // opcional: limpiar campos
             emailField.clear();
             nombreField.clear();
             passwordField.clear();

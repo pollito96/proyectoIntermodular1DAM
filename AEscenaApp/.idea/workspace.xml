@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4d987062-0bd6-4fd5-a9e1-378e06ee110d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/LoginControlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/LoginControlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/RegistroControlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/RegistroControlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/ConnectionFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/UsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/aescenaapp/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/aescenaapp/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/aescenaapp/registro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/aescenaapp/registro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/servicio/UsuarioServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/servicio/UsuarioServicio.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
