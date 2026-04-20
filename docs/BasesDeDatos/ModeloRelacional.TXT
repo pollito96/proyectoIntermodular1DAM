@@ -1,0 +1,56 @@
+@startuml
+
+entity USUARIO {
+  *id_usuario : int
+  email : varchar 
+  pass : varchar 
+  nombre : varchar 
+  estado : boolean 
+  fecha_creacion : datetime
+}
+
+entity ROL {
+  *id_rol : int
+  tipo : enum <<CLIENTE, PROFESOR, ADMIN>>
+}
+
+entity USUARIO_ROL {
+  *id_usuario : int <<FK>>
+  *id_rol : int <<FK>>
+}
+
+entity CLASE {
+  *id_clase : int
+  nombre : varchar 
+  descripcion : text
+  nivel : varchar
+  id_usuario : int <<FK>>
+}
+
+entity SESION {
+  *id_sesion : int
+  fecha : date 
+  hora_inicio : time 
+  hora_fin : time 
+  plazas_totales : int
+  id_clase : int <<FK>>
+}
+
+entity RESERVA {
+  *reserva_id : int
+  estado : enum <<PROGRAMADA, CANCELADA, FINALIZADA>>
+  fecha_reserva : date 
+  id_usuario : int <<FK>>
+  id_sesion : int <<FK>>
+}
+
+USUARIO ||--o{ USUARIO_ROL
+ROL ||--o{ USUARIO_ROL
+
+USUARIO ||--o{ CLASE
+CLASE ||--o{ SESION
+
+USUARIO ||--o{ RESERVA
+SESION ||--o{ RESERVA
+
+@enduml

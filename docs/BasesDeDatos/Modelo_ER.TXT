@@ -1,0 +1,87 @@
+@startchen 
+
+left to right direction
+skinparam shadowing false
+
+entity Usuario {
+  id_usuario <<key>>
+  email
+  pass
+  nombre
+  estado
+  fecha_creacion
+}
+
+entity Rol {
+  id_rol <<key>>
+  tipo
+}
+
+entity Usuario_Rol {
+  id_usuario FK
+  id_rol FK
+}
+
+
+entity Clase {
+  id_clase <<key>>
+  nombre
+  descripcion
+  nivel
+  id_usuario FK
+}
+
+entity Sesion {
+  id_sesion <<key>>
+  fecha
+  hora_inicio
+  hora_fin
+  id_clase FK 
+  plazas_totales
+}
+
+entity Reserva {
+  reserva_id <<key>>
+  estado
+  fecha_reserva
+  id_usuario FK
+  id_sesion FK
+}
+
+relationship tiene {
+}
+Usuario -1- tiene
+Usuario_Rol -N- tiene
+
+relationship contiene {
+}
+Rol -1- contiene
+Usuario_Rol -N- contiene
+
+relationship crea {
+}
+Usuario -1- crea
+Clase -N- crea
+
+relationship organiza {
+}
+Usuario -1- organiza
+Sesion -N- organiza
+
+relationship estructura {
+}
+Clase -1- estructura
+Sesion -N- estructura
+
+relationship hace {
+}
+Usuario -1- hace
+Reserva -N- hace
+relationship contiene {
+}
+Sesion -1- contiene
+Reserva -N- contiene
+
+
+@endchen
+
