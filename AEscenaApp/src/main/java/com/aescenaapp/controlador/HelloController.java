@@ -1,4 +1,4 @@
-package com.aescenaapp;
+package com.aescenaapp.controlador;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
