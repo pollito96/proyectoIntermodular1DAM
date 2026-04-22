@@ -3,6 +3,7 @@ package com.aescenaapp.controlador;
 import com.aescenaapp.modelo.Usuario;
 import com.aescenaapp.servicio.UsuarioServicio;
 import com.aescenaapp.util.GestorNavegacion;
+import com.aescenaapp.util.ValidacionUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,18 +30,23 @@ public class RegistroControlador {
         String nombre = nombreField.getText();
         String pass = passwordField.getText();
 
-        if (email.isBlank() || nombre.isBlank() || pass.isBlank()) {
+        if (!ValidacionUtil.camposObligatorios(email, nombre, pass)) {
             errorLabel.setText("Todos los campos son obligatorios");
             return;
         }
 
-        if (!email.contains("@")) {
-            errorLabel.setText("Email no válido");
+        if (!ValidacionUtil.emailValido(email)) {
+            errorLabel.setText("El email no tiene un formato válido (ejemplo@dominio.com)");
             return;
         }
 
-        if (pass.length() < 6) {
-            errorLabel.setText("La contraseña es demasiado corta");
+        if (!ValidacionUtil.nombreValido(nombre)) {
+            errorLabel.setText("El nombre debe tener entre 2 y 50 caracteres y solo puede contener letras y espacios");
+            return;
+        }
+
+        if (!ValidacionUtil.passwordValida(pass)) {
+            errorLabel.setText("La contraseña debe tener mínimo 8 caracteres, 1 mayúscula, 1 número y 1 símbolo");
             return;
         }
 
