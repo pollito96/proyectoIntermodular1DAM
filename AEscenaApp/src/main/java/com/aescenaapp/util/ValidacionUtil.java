@@ -12,7 +12,6 @@ public class ValidacionUtil {
         return email != null && email.matches(EMAIL_REGEX);
     }
 
-    // -------- PASSWORD --------
     public static boolean passwordValida(String pass) {
         return pass != null && pass.matches(PASSWORD_REGEX);
     }
@@ -21,7 +20,6 @@ public class ValidacionUtil {
         return nombre != null && nombre.matches(NOMBRE_REGEX);
     }
 
-    // -------- REQUIRED FIELDS --------
     public static boolean camposObligatorios(String... campos) {
         for (String c : campos) {
             if (c == null || c.isBlank()) {

@@ -3,6 +3,8 @@ package com.aescenaapp.servicio;
 import com.aescenaapp.dao.UsuarioDAO;
 import com.aescenaapp.modelo.Usuario;
 
+import java.util.List;
+
 public class UsuarioServicio {
     private UsuarioDAO usuarioDAO = new UsuarioDAO();
 
@@ -17,6 +19,21 @@ public class UsuarioServicio {
 
     public boolean registrar(Usuario u) {
         return usuarioDAO.registrarUsuario(u);
+    }
+
+    public void asignarProfesor(int idUsuario) {
+        usuarioDAO.insertarRol(idUsuario, "PROFESOR");
+    }
+
+    public void quitarProfesor(int idUsuario) {
+        usuarioDAO.eliminarRol(idUsuario, "PROFESOR");
+    }
+    public List<Usuario> obtenerClientes() {
+        return usuarioDAO.obtenerClientes();
+    }
+
+    public List<Usuario> obtenerProfesores() {
+        return usuarioDAO.obtenerProfesores();
     }
 }
 

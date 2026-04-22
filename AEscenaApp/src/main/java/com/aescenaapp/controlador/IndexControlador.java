@@ -5,6 +5,8 @@ import com.aescenaapp.modelo.Usuario;
 import com.aescenaapp.util.GestorNavegacion;
 import com.aescenaapp.util.GestorSesion;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -20,34 +22,79 @@ public class IndexControlador {
 
     @FXML private StackPane contentPane;
 
+    private Usuario usuario;
+
     @FXML
     public void initialize() {
 
-        Usuario u = GestorSesion.getUsuario();
+        usuario = GestorSesion.getUsuario();
 
-        usuarioLabel.setText("Usuario: " + u.getNombre());
+        if (usuario == null) {
+            return;
+        }
 
-        // 🔐 control por roles
+        usuarioLabel.setText("Usuario: " + usuario.getNombre());
+
         boolean isAdmin = GestorSesion.hasRole("ADMIN");
         boolean isProfesor = GestorSesion.hasRole("PROFESOR");
         boolean isCliente = GestorSesion.hasRole("CLIENTE");
 
-        // CLIENTE
-        btnReservas.setVisible(isCliente || isAdmin);
-        btnReservas.setManaged(isCliente || isAdmin);
+        btnReservas.setVisible(isCliente);
+        btnReservas.setManaged(isCliente);
 
-        // PROFESOR
-        btnClases.setVisible(isProfesor || isAdmin);
-        btnClases.setManaged(isProfesor || isAdmin);
+        btnClases.setVisible(isProfesor);
+        btnClases.setManaged(isProfesor);
 
-        btnSesiones.setVisible(isProfesor || isAdmin);
-        btnSesiones.setManaged(isProfesor || isAdmin);
+        btnSesiones.setVisible(isProfesor);
+        btnSesiones.setManaged(isProfesor);
 
-        // ADMIN
         btnAdmin.setVisible(isAdmin);
         btnAdmin.setManaged(isAdmin);
+
+        if (isAdmin) {
+            cargarVista("/com/aescenaapp/adminPanel.fxml");
+        } else if (isProfesor) {
+            cargarVista("/com/aescenaapp/clasesPanel.fxml");
+        } else {
+            cargarVista("/com/aescenaapp/reservasPanel.fxml");
+        }
     }
 
+    private void cargarVista(String fxml) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(fxml)
+            );
+
+            Parent vista = loader.load();
+
+            contentPane.getChildren().setAll(vista);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void irReservas() {
+        cargarVista("/com/aescenaapp/reservasPanel.fxml");
+    }
+
+    @FXML
+    private void irClases() {
+        cargarVista("/com/aescenaapp/clasesPanel.fxml");
+    }
+
+    @FXML
+    private void irSesiones() {
+        cargarVista("/com/aescenaapp/sesionesPanel.fxml");
+    }
+
+    @FXML
+    private void irAdmin() {
+        cargarVista("/com/aescenaapp/adminPanel.fxml");
+    }
+    
     @FXML
     private void logout() {
 

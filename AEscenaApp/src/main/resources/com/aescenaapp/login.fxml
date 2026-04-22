@@ -51,6 +51,7 @@
 
             <Button text="Iniciar sesión"
                     onAction="#login"
+                    defaultButton="true"
                     style="-fx-background-color: #1abc9c;
                            -fx-text-fill: white;
                            -fx-background-radius: 5;

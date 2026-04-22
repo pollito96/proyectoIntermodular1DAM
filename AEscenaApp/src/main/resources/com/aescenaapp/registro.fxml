@@ -30,19 +30,34 @@
                  -fx-padding: 25;
                  -fx-background-radius: 10;">
 
-        <Label text="Email" style="-fx-text-fill: white;" />
+        <HBox>
+            <Label text="Email" style="-fx-text-fill: white;" />
+            <Label fx:id="emailErrorLabel"
+                       textFill="#e74c3c"
+                       style="-fx-padding: 5;" />
+        </HBox>
         <TextField fx:id="emailField"
                    promptText="ejemplo@gmail.com"
                    style="-fx-background-radius: 5;
-                          -fx-padding: 8;" />
+                   -fx-padding: 8;" />
 
-        <Label text="Nombre" style="-fx-text-fill: white;" />
+        <HBox>
+            <Label text="Nombre" style="-fx-text-fill: white;" />
+            <Label fx:id="nombreErrorLabel"
+                   textFill="#e74c3c"
+                   style="-fx-padding: 5;" />
+        </HBox>
         <TextField fx:id="nombreField"
                    promptText="Ejemplo"
                    style="-fx-background-radius: 5;
                           -fx-padding: 8;" />
 
-        <Label text="Contraseña" style="-fx-text-fill: white;" />
+        <HBox>
+            <Label text="Contraseña" style="-fx-text-fill: white;" />
+            <Label fx:id="passwordErrorLabel"
+                   textFill="#e74c3c"
+                   style="-fx-padding: 5;" />
+        </HBox>
         <PasswordField fx:id="passwordField"
                        promptText="Contraseña"
                        style="-fx-background-radius: 5;
@@ -50,8 +65,10 @@
 
         <HBox spacing="10" alignment="CENTER">
 
-            <Button text="Registrarse"
+            <Button fx:id="registrarButton"
+                    text="Registrarse"
                     onAction="#registrar"
+                    defaultButton="true"
                     style="-fx-background-color: #1abc9c;
                            -fx-text-fill: white;
                            -fx-background-radius: 5;

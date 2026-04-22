@@ -5,10 +5,7 @@ import com.aescenaapp.servicio.UsuarioServicio;
 import com.aescenaapp.util.GestorNavegacion;
 import com.aescenaapp.util.ValidacionUtil;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 public class RegistroControlador {
 
@@ -20,8 +17,61 @@ public class RegistroControlador {
     private PasswordField passwordField;
     @FXML
     private Label errorLabel;
+    @FXML
+    private Label emailErrorLabel;
+    @FXML
+    private Label nombreErrorLabel;
+    @FXML
+    private Label passwordErrorLabel;
+    @FXML
+    private Button registrarButton;
 
     private UsuarioServicio usuarioServicio = new UsuarioServicio();
+
+    private boolean emailOk = false;
+    private boolean nombreOk = false;
+    private boolean passwordOk = false;
+
+    @FXML
+    public void initialize() {
+
+
+
+        emailField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!ValidacionUtil.emailValido(newValue)) {
+                emailErrorLabel.setText("El email no tiene un formato válido (ejemplo@dominio.com)");
+                emailOk = false;
+            }else  {
+                emailErrorLabel.setText("");
+                emailOk = true;
+            }
+            actualizarBoton();
+        });
+        nombreField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!ValidacionUtil.nombreValido(newValue)) {
+                nombreErrorLabel.setText("El nombre debe tener entre 2 y 50 caracteres y solo puede contener letras y espacios");
+                nombreOk = false;
+            }else  {
+                nombreErrorLabel.setText("");
+                nombreOk = true;
+            }
+            actualizarBoton();
+        });
+        passwordField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!ValidacionUtil.passwordValida(newValue)) {
+                passwordErrorLabel.setText("La contraseña debe tener mínimo 8 caracteres, 1 mayúscula, 1 número y 1 símbolo");
+                passwordOk = false;
+            }else {
+                passwordErrorLabel.setText("");
+                passwordOk = true;
+            }
+            actualizarBoton();
+        });
+    }
+
+    private void actualizarBoton() {
+        registrarButton.setDisable(!(emailOk && nombreOk && passwordOk));
+    }
 
     @FXML
     private void registrar() {
@@ -35,18 +85,7 @@ public class RegistroControlador {
             return;
         }
 
-        if (!ValidacionUtil.emailValido(email)) {
-            errorLabel.setText("El email no tiene un formato válido (ejemplo@dominio.com)");
-            return;
-        }
-
-        if (!ValidacionUtil.nombreValido(nombre)) {
-            errorLabel.setText("El nombre debe tener entre 2 y 50 caracteres y solo puede contener letras y espacios");
-            return;
-        }
-
-        if (!ValidacionUtil.passwordValida(pass)) {
-            errorLabel.setText("La contraseña debe tener mínimo 8 caracteres, 1 mayúscula, 1 número y 1 símbolo");
+        if (!ValidacionUtil.emailValido(email)||!ValidacionUtil.nombreValido(nombre) || !ValidacionUtil.passwordValida(pass)) {
             return;
         }
 
