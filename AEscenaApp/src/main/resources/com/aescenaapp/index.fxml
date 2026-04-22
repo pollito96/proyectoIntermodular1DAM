@@ -30,16 +30,22 @@
                     onAction="#irReservas"
             />
 
-            <Button fx:id="btnClases"
-                    text="Clases"
-                    maxWidth="Infinity"
-                    onAction="#irClases"
-            />
-
             <Button fx:id="btnSesiones"
                     text="Sesiones"
                     maxWidth="Infinity"
                     onAction="#irSesiones"
+            />
+
+            <Button fx:id="btnClasesProfe"
+                    text="Clases"
+                    maxWidth="Infinity"
+                    onAction="#irClasesProfe"
+            />
+
+            <Button fx:id="btnClasesAdmin"
+                    text="Gestion Clases"
+                    maxWidth="Infinity"
+                    onAction="#irClasesAdmin"
             />
 
             <Button fx:id="btnAdmin"

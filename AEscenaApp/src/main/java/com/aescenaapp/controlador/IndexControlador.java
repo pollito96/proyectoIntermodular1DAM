@@ -16,7 +16,8 @@ public class IndexControlador {
     @FXML private Label usuarioLabel;
 
     @FXML private Button btnReservas;
-    @FXML private Button btnClases;
+    @FXML private Button btnClasesProfe;
+    @FXML private Button btnClasesAdmin;
     @FXML private Button btnSesiones;
     @FXML private Button btnAdmin;
 
@@ -42,11 +43,15 @@ public class IndexControlador {
         btnReservas.setVisible(isCliente);
         btnReservas.setManaged(isCliente);
 
-        btnClases.setVisible(isProfesor);
-        btnClases.setManaged(isProfesor);
 
         btnSesiones.setVisible(isProfesor);
         btnSesiones.setManaged(isProfesor);
+
+        btnClasesProfe.setVisible(isProfesor);
+        btnClasesProfe.setManaged(isProfesor);
+
+        btnClasesAdmin.setVisible(isAdmin);
+        btnClasesAdmin.setManaged(isAdmin);
 
         btnAdmin.setVisible(isAdmin);
         btnAdmin.setManaged(isAdmin);
@@ -79,10 +84,14 @@ public class IndexControlador {
     private void irReservas() {
         cargarVista("/com/aescenaapp/reservasPanel.fxml");
     }
+    @FXML
+    private void irClasesProfe() {
+        cargarVista("/com/aescenaapp/clasesProfePanel.fxml");
+    }
 
     @FXML
-    private void irClases() {
-        cargarVista("/com/aescenaapp/clasesPanel.fxml");
+    private void irClasesAdmin() {
+        cargarVista("/com/aescenaapp/clasesAdminPanel.fxml");
     }
 
     @FXML
@@ -94,7 +103,7 @@ public class IndexControlador {
     private void irAdmin() {
         cargarVista("/com/aescenaapp/adminPanel.fxml");
     }
-    
+
     @FXML
     private void logout() {
 
