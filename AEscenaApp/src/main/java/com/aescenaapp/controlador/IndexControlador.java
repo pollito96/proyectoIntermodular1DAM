@@ -44,8 +44,8 @@ public class IndexControlador {
         btnReservas.setManaged(isCliente);
 
 
-        btnSesiones.setVisible(isProfesor);
-        btnSesiones.setManaged(isProfesor);
+        btnSesiones.setVisible(isCliente);
+        btnSesiones.setManaged(isCliente);
 
         btnClasesProfe.setVisible(isProfesor);
         btnClasesProfe.setManaged(isProfesor);
@@ -59,9 +59,9 @@ public class IndexControlador {
         if (isAdmin) {
             cargarVista("/com/aescenaapp/adminPanel.fxml");
         } else if (isProfesor) {
-            cargarVista("/com/aescenaapp/clasesPanel.fxml");
+            cargarVista("/com/aescenaapp/clasesProfePanel.fxml");
         } else {
-            cargarVista("/com/aescenaapp/reservasPanel.fxml");
+            cargarVista("/com/aescenaapp/reservaPanel.fxml");
         }
     }
 
@@ -82,7 +82,7 @@ public class IndexControlador {
 
     @FXML
     private void irReservas() {
-        cargarVista("/com/aescenaapp/reservasPanel.fxml");
+        cargarVista("/com/aescenaapp/reservaPanel.fxml");
     }
     @FXML
     private void irClasesProfe() {
@@ -96,7 +96,7 @@ public class IndexControlador {
 
     @FXML
     private void irSesiones() {
-        cargarVista("/com/aescenaapp/sesionesPanel.fxml");
+        cargarVista("/com/aescenaapp/sesionPanel.fxml");
     }
 
     @FXML
@@ -107,7 +107,7 @@ public class IndexControlador {
     @FXML
     private void logout() {
 
-        GestorSesion.setUsuario(null);
+        GestorSesion.cerrarSesion();
 
         GestorNavegacion.cambiarVista(
                 "/com/aescenaapp/login.fxml",

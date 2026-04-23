@@ -10,5 +10,6 @@ module com.example.login_mpo_victor_irribarria_sanchez {
     exports com.aescenaapp.controlador;
     opens com.aescenaapp.controlador to javafx.fxml;
     opens com.aescenaapp.modelo to javafx.base;
+    opens com.aescenaapp.DTO to javafx.base;
 
 }

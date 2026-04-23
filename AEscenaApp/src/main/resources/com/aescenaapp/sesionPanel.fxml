@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.aescenaapp.controlador.SesionControlador"
+            style="-fx-background-color: #ecf0f1;">
+
+    <top>
+        <VBox spacing="5" style="-fx-padding: 10;">
+
+            <Label text="Panel de Sesiones"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+            <Label fx:id="modoLabel"
+                   text="Modo"
+                   style="-fx-text-fill: #555;" />
+
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tablaSesiones" prefHeight="500">
+
+            <columns>
+
+                <TableColumn fx:id="colClase"
+                             text="Clase"
+                             prefWidth="150"/>
+
+                <TableColumn fx:id="colFecha"
+                             text="Fecha"
+                             prefWidth="120"/>
+
+                <TableColumn fx:id="colInicio"
+                             text="Inicio"
+                             prefWidth="80"/>
+
+                <TableColumn fx:id="colFin"
+                             text="Fin"
+                             prefWidth="80"/>
+
+                <TableColumn fx:id="colPlazas"
+                             text="Plazas"
+                             prefWidth="100"/>
+
+            </columns>
+
+        </TableView>
+    </center>
+
+</BorderPane>

@@ -15,8 +15,17 @@ public class GestorSesion {
     }
 
     public static boolean hasRole(String rol) {
+
+        if (usuario == null || usuario.getRoles() == null) {
+            return false;
+        }
+
         return usuario.getRoles()
                 .stream()
                 .anyMatch(r -> r.getTipo().equals(rol));
+    }
+
+    public static void cerrarSesion() {
+        usuario = null;
     }
 }
