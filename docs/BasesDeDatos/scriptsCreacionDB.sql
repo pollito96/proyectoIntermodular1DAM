@@ -1,3 +1,6 @@
+
+-- Queries DDL
+
 CREATE DATABASE aescena;
 USE aescena;
 
@@ -6,7 +9,7 @@ CREATE TABLE USUARIO (
     email VARCHAR(255) NOT NULL UNIQUE,
     pass VARCHAR(255) NOT NULL,
     nombre VARCHAR(100) NOT NULL,
-    estado BOOLEAN NOT NULL DEFAULT true,
+    estado TINYINT(1) NOT NULL DEFAULT 1,
     fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -14,11 +17,6 @@ CREATE TABLE ROL (
   id_rol INT AUTO_INCREMENT PRIMARY KEY,
   tipo VARCHAR(20) UNIQUE NOT NULL
 );
-
-INSERT INTO ROL (tipo) VALUES
-('CLIENTE'),
-('PROFESOR'),
-('ADMIN');
 
 CREATE TABLE USUARIO_ROL (
     id_usuario INT NOT NULL,
@@ -36,9 +34,7 @@ CREATE TABLE USUARIO_ROL (
 CREATE TABLE CLASE (
     id_clase INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-    descripcion TEXT,
-    nivel VARCHAR(50)
-    
+    descripcion TEXT 
 );
 
 CREATE TABLE SESION (
@@ -60,7 +56,7 @@ CREATE TABLE SESION (
 );
 
 CREATE TABLE RESERVA (
-    reserva_id INT AUTO_INCREMENT PRIMARY KEY,
+    id-reserva INT AUTO_INCREMENT PRIMARY KEY,
     fecha_reserva DATETIME DEFAULT CURRENT_TIMESTAMP,
     id_usuario INT NOT NULL,
     id_sesion INT NOT NULL,
@@ -73,18 +69,3 @@ CREATE TABLE RESERVA (
 
     UNIQUE (id_usuario, id_sesion)
 );
-
-INSERT INTO USUARIO (email, pass, nombre)
-VALUES 
-('admin@gmail.com', 'Qwer1234_', 'admin'),
-('profe@gmail.com', 'Qwer1234_', 'profe'),
-('cliente@gmail.com', 'Qwer1234_', 'cliente');
-
-INSERT INTO USUARIO_ROL (id_usuario, id_rol)
-VALUES 
-(1, 1),
-(1, 2),
-(1, 3),
-(2, 1),
-(2, 2),
-(3, 1);

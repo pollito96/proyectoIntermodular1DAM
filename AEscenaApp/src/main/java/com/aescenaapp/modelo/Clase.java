@@ -16,7 +16,6 @@ public class Clase {
     private int idClase;
     private String nombre;
     private String descripcion;
-    private String nivel;
 
     private List<Sesion> sesiones = new ArrayList<>();
 }

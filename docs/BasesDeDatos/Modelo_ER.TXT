@@ -1,4 +1,4 @@
-@startchen 
+@startchen
 
 left to right direction
 skinparam shadowing false
@@ -17,18 +17,11 @@ entity Rol {
   tipo
 }
 
-entity Usuario_Rol {
-  id_usuario FK
-  id_rol FK
-}
-
-
 entity Clase {
   id_clase <<key>>
   nombre
   descripcion
   nivel
-  id_usuario FK
 }
 
 entity Sesion {
@@ -36,52 +29,63 @@ entity Sesion {
   fecha
   hora_inicio
   hora_fin
-  id_clase FK 
   plazas_totales
 }
 
 entity Reserva {
-  reserva_id <<key>>
-  estado
+  id_reserva <<key>>
   fecha_reserva
-  id_usuario FK
-  id_sesion FK
+  estado
 }
 
-relationship tiene {
+entity Usuario_Rol {
+  id_usuario <<FK>>
+  id_rol <<FK>>
 }
-Usuario -1- tiene
-Usuario_Rol -N- tiene
 
-relationship contiene {
+
+relationship asigna_rol {
 }
-Rol -1- contiene
-Usuario_Rol -N- contiene
+
+Usuario -1- asigna_rol
+Usuario_Rol -N- asigna_rol
+
+Rol -1- asigna_rol
+Usuario_Rol -N- asigna_rol
+
 
 relationship crea {
 }
+
 Usuario -1- crea
 Clase -N- crea
 
-relationship organiza {
-}
-Usuario -1- organiza
-Sesion -N- organiza
 
-relationship estructura {
+relationship imparte {
 }
-Clase -1- estructura
-Sesion -N- estructura
 
-relationship hace {
-}
-Usuario -1- hace
-Reserva -N- hace
-relationship contiene {
-}
-Sesion -1- contiene
-Reserva -N- contiene
+Usuario -1- imparte
+Sesion -N- imparte
 
+
+relationship pertenece {
+}
+
+Clase -1- pertenece
+Sesion -N- pertenece
+
+
+relationship realiza {
+}
+
+Usuario -1- realiza
+Reserva -N- realiza
+
+
+relationship genera {
+}
+
+Sesion -1- genera
+Reserva -N- genera
 
 @endchen
-

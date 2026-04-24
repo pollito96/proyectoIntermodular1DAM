@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4d987062-0bd6-4fd5-a9e1-378e06ee110d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/AEscenaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/AEscenaApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/IndexControlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/IndexControlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/ConnectionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/SesionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/SesionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/servicio/SesionServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/servicio/SesionServicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/util/GestorSesion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/util/GestorSesion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/modelo/Clase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/modelo/Clase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/modelo/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/modelo/Reserva.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

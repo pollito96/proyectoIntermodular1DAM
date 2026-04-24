@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Reserva {
 
-    private int reservaId;
+    private int idReserva;
     private LocalDateTime fechaReserva;
 
     private int idUsuario; //CLIENTE
