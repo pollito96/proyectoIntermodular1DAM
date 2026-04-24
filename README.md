@@ -48,8 +48,10 @@ git clone https://github.com/pollito96/proyectoIntermodular1DAM.git
 
 ### 2. Configurar la base de datos
 
-Dentro del repositorio se encuentran los scripts SQL en: docs/BasesDeDatos/scripts/
-
+Dentro del repositorio se encuentran los scripts SQL en: 
+```
+docs/BasesDeDatos/scripts/
+```
 Ejecuta los siguientes archivos en MySQL:
 
 - scriptsCreacionDB.sql → crea la estructura de la base de datos
@@ -58,19 +60,21 @@ Ejecuta los siguientes archivos en MySQL:
 ### 3. Configurar conexion a la base de datos
 
 Asegúrate de ajustar los datos de conexión (usuario, contraseña, URL) en la clase de conexión del proyecto: ConnectionFactory.java
-
+```
 proyectoIntermodular1DAM/AEscenaApp/src/main/java/com/aescenaapp/dao/ConnectionFactory.java
-
+```
 ### 4. Ejecuta la aplicación
 
 Ejecuta el proyecto desde tu IDE lanzando la clase: main.java
-
+```
 proyectoIntermodular1DAM/AEscenaApp/src/main/java/com/aescenaapp/main.java
-
+```
 ---
 
 
 ## Estructura del proyecto
+
+```
 proyectoIntermodular1DAM/
 ├── AEscenaApp/
     ├── src/
@@ -150,6 +154,7 @@ proyectoIntermodular1DAM/
     └── Sistemas/
 ├── .gitattributes
 └── README.md
+```
 
 ---
 
