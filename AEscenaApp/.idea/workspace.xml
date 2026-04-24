@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d987062-0bd6-4fd5-a9e1-378e06ee110d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/modelo/Clase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/modelo/Clase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/modelo/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/modelo/Reserva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/BasesDeDatos/ModeloRelacional.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/BasesDeDatos/ModeloRelacional.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/BasesDeDatos/Modelo_ER.TXT" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/BasesDeDatos/Modelo_ER.TXT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/BasesDeDatos/Modelo_ER.png" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/BasesDeDatos/Modelo_ER.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/BasesDeDatos/scriptsCreacionDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/BasesDeDatos/scriptsCreacionDB.sql" afterDir="false" />
-    </list>
+    <list default="true" id="4d987062-0bd6-4fd5-a9e1-378e06ee110d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
