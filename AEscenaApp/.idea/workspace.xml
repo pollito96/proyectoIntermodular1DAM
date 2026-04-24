@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d987062-0bd6-4fd5-a9e1-378e06ee110d" name="Changes" comment="" />
+    <list default="true" id="4d987062-0bd6-4fd5-a9e1-378e06ee110d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/AEscenaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/BasesDeDatos/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/BasesDeDatos/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,7 +65,7 @@
   </component>
   <component name="RunManager">
     <configuration name="AEscenaApp" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="com.aescenaapp.AEscenaApp" />
+      <option name="MAIN_CLASS_NAME" value="com.aescenaapp.main" />
       <module name="Login_MPO_Victor_Irribarria_Sanchez" />
       <method v="2">
         <option name="Make" enabled="true" />

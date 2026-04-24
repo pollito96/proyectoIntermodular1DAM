@@ -1,4 +1,4 @@
-# AEscena - Diseño de DB
+    # AEscena - Diseño de DB
 
 ## Objetivo del sistema
 
@@ -14,8 +14,8 @@ Más allá de eso es un sistema de creacion de clases, sesiones y reservas para 
 
 He elegido un diseño simple en este caso a nivel de campos pero con algunas decisiones que considero importantes como:
 
--Estado: En vez de borrar a los usuarios en caso de darse de baja he añadido el atributo estado que representa alta o baja en forma de booleano.
--fecha_creacion: Me ha parecido importante guardar y mantener esta informacion que, aunque no sea usada en la aplicacion creo que en un nivel más profesional puede ser importante en cuanto a auditorias.
+- Estado: En vez de borrar a los usuarios en caso de darse de baja he añadido el atributo estado que representa alta o baja en forma de booleano.
+- fecha_creacion: Me ha parecido importante guardar y mantener esta informacion que, aunque no sea usada en la aplicacion creo que en un nivel más profesional puede ser importante en cuanto a auditorias.
 
 ---
 

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.StandardSocketOptions;
 import java.sql.SQLOutput;
 
-public class AEscenaApp extends Application {
+public class main extends Application {
 
     @Override
     public void start(Stage stage) {
