@@ -1,9 +1,7 @@
 package com.aescenaapp.util;
 
 import com.aescenaapp.DTO.SesionDTO;
-import com.aescenaapp.dao.SesionDAO;
 import com.aescenaapp.modelo.Reserva;
-import com.aescenaapp.modelo.Sesion;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
