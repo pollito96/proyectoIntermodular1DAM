@@ -35,6 +35,18 @@ public class ClasesProfeControlador {
                 new javafx.beans.property.SimpleStringProperty(data.getValue().getNombre())
         );
 
+        plazasField.textProperty().addListener((obs, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                plazasField.setText(newValue.replaceAll("[^\\d]", ""));
+                return;
+            }
+
+            // Evitar ceros al principio (opcional)
+            if (newValue.startsWith("0") && newValue.length() > 1) {
+                plazasField.setText(newValue.replaceFirst("^0+", ""));
+            }
+        });
+
         cargarClases();
         inicializarHoras();
         configurarSeleccion();
@@ -95,20 +107,31 @@ public class ClasesProfeControlador {
         try {
             horaInicio = LocalTime.parse(horaInicioCombo.getValue());
             horaFin = LocalTime.parse(horaFinCombo.getValue());
-            plazas = Integer.parseInt(plazasField.getText());
-            if (horaFin.isBefore(horaInicio)) {
-                alerta("La hora de fin debe ser posterior a la de inicio");
-                return;
-            }
         } catch (Exception e) {
-            alerta("Datos inválidos");
+            alerta("Formato de hora inválido");
+            return;
+        }
+
+        if (horaFin.isBefore(horaInicio)) {
+            alerta("La hora de fin debe ser posterior a la de inicio");
+            return;
+        }
+
+        try {
+            plazas = Integer.parseInt(plazasField.getText());
+        } catch (Exception e) {
+            alerta("Las plazas deben ser un número válido");
+            return;
+        }
+
+        if (plazas <= 0) {
+            alerta("Las plazas deben ser mayores que 0");
             return;
         }
 
         Usuario profesor = com.aescenaapp.util.GestorSesion.getUsuario();
 
         Sesion s = new Sesion();
-
         s.setFecha(datePicker.getValue());
         s.setHoraInicio(horaInicio);
         s.setHoraFin(horaFin);
@@ -116,13 +139,32 @@ public class ClasesProfeControlador {
         s.setIdClase(claseSeleccionada.getIdClase());
         s.setIdUsuario(profesor.getIdUsuario());
 
-        boolean ok = sesionServicio.crearSesion(s);
+        String resultado = sesionServicio.crearSesion(s);
 
-        if (ok) {
-            info("Sesión creada");
-            limpiar();
-        } else {
-            alerta("Error al crear sesión");
+        switch (resultado) {
+            case "OK":
+                info("Sesión creada");
+                limpiar();
+                break;
+
+            case "PLAZAS_INVALIDAS":
+                alerta("Las plazas deben ser mayores que 0");
+                break;
+
+            case "HORARIO_INVALIDO":
+                alerta("La hora de fin debe ser posterior a la de inicio");
+                break;
+
+            case "FECHA_NULL":
+                alerta("La fecha es obligatoria");
+                break;
+
+            case "ERROR_BD":
+                alerta("Error al guardar en la base de datos");
+                break;
+
+            default:
+                alerta("Error inesperado");
         }
     }
 

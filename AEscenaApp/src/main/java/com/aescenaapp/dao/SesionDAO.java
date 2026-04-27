@@ -42,25 +42,61 @@ public class SesionDAO {
         return false;
     }
 
-    public List<Sesion> obtenerSesionesPorProfesor(int idUsuario) {
+    public List<SesionDTO> obtenerSesionesPorProfesor(int idUsuario) {
 
         String sql = """
-            SELECT id_sesion, fecha, hora_inicio, hora_fin, plazas_totales, id_clase
-            FROM SESION
-            WHERE id_usuario = ?
-        """;
+        SELECT
+            s.id_sesion,
+            s.fecha,
+            s.hora_inicio,
+            s.hora_fin,
+            s.plazas_totales,
+            c.nombre AS nombre_clase,
+            u.nombre AS nombre_profesor,
 
-        return listarSesiones(sql, idUsuario);
+            CASE
+                WHEN s.id_usuario = ? THEN 'CREADA'
+                ELSE 'RESERVADA'
+            END AS tipo
+
+        FROM SESION s
+        JOIN CLASE c ON s.id_clase = c.id_clase
+        JOIN USUARIO u ON s.id_usuario = u.id_usuario
+
+        WHERE
+            s.id_usuario = ?
+            OR EXISTS (
+                SELECT 1
+                FROM RESERVA r
+                WHERE r.id_sesion = s.id_sesion
+                AND r.id_usuario = ?
+            )
+    """;
+
+        return listarSesiones(sql, idUsuario, idUsuario, idUsuario);
     }
 
-    public List<Sesion> obtenerSesionesReservadas(int idUsuario) {
+    public List<SesionDTO> obtenerSesionesReservadas(int idUsuario) {
 
         String sql = """
-            SELECT s.id_sesion, s.fecha, s.hora_inicio, s.hora_fin, s.plazas_totales, s.id_clase
-            FROM SESION s
-            JOIN RESERVA r ON s.id_sesion = r.id_sesion
-            WHERE r.id_usuario = ?
-        """;
+        SELECT
+            s.id_sesion,
+            s.fecha,
+            s.hora_inicio,
+            s.hora_fin,
+            s.plazas_totales,
+            c.nombre AS nombre_clase,
+            u.nombre AS nombre_profesor,
+
+            'RESERVADA' AS tipo
+
+        FROM SESION s
+        JOIN CLASE c ON s.id_clase = c.id_clase
+        JOIN USUARIO u ON s.id_usuario = u.id_usuario
+        JOIN RESERVA r ON s.id_sesion = r.id_sesion
+
+        WHERE r.id_usuario = ?
+    """;
 
         return listarSesiones(sql, idUsuario);
     }
@@ -117,9 +153,9 @@ public class SesionDAO {
         return lista;
     }
 
-    private List<Sesion> listarSesiones(String sql, Object... params) {
+    private List<SesionDTO> listarSesiones(String sql, Object... params) {
 
-        List<Sesion> lista = new ArrayList<>();
+        List<SesionDTO> lista = new ArrayList<>();
 
         try (Connection conn = ConnectionFactory.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -132,14 +168,20 @@ public class SesionDAO {
 
                 while (rs.next()) {
 
-                    Sesion s = new Sesion();
+                    SesionDTO s = new SesionDTO();
 
                     s.setIdSesion(rs.getInt("id_sesion"));
                     s.setFecha(rs.getDate("fecha").toLocalDate());
                     s.setHoraInicio(rs.getTime("hora_inicio").toLocalTime());
                     s.setHoraFin(rs.getTime("hora_fin").toLocalTime());
                     s.setPlazasTotales(rs.getInt("plazas_totales"));
-                    s.setIdClase(rs.getInt("id_clase"));
+
+                    // estos vienen de JOIN
+                    s.setNombreClase(rs.getString("nombre_clase"));
+                    s.setNombreProfesor(rs.getString("nombre_profesor"));
+
+                    // puede venir o no según query
+                    s.setTipo(rs.getString("tipo"));
 
                     lista.add(s);
                 }

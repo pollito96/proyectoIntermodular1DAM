@@ -2,6 +2,7 @@ package com.aescenaapp.dao;
 
 import com.aescenaapp.modelo.Rol;
 import com.aescenaapp.modelo.Usuario;
+import com.mysql.cj.x.protobuf.MysqlxPrepare;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -218,6 +219,28 @@ public class UsuarioDAO {
         }
 
         return lista;
+    }
+
+    public boolean emailExiste ( String email) {
+
+        String sql = "SELECT COUNT(*) FROM USUARIO WHERE email = ?";
+
+        try (Connection conn = ConnectionFactory.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql)){
+
+            ps.setString(1, email);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
 }

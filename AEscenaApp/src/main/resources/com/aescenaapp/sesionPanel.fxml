@@ -14,41 +14,44 @@
             <Label text="Panel de Sesiones"
                    style="-fx-font-size: 20px; -fx-font-weight: bold;" />
 
-            <Label fx:id="modoLabel"
-                   text="Modo"
+            <Label fx:id="titleLabel"
+                   text="Tus Sesiones"
                    style="-fx-text-fill: #555;" />
 
         </VBox>
     </top>
 
     <center>
-        <TableView fx:id="tablaSesiones" prefHeight="500">
+        <VBox spacing="10" style="-fx-padding: 10;">
 
-            <columns>
+            <HBox spacing="10">
 
-                <TableColumn fx:id="colClase"
-                             text="Clase"
-                             prefWidth="150"/>
+                <Button fx:id="btnTodas"
+                        text="Todas"
+                        onAction="#filtrarTodas"/>
 
-                <TableColumn fx:id="colFecha"
-                             text="Fecha"
-                             prefWidth="120"/>
+                <Button fx:id="btnCreadas"
+                        text="Creadas"
+                        onAction="#filtrarCreadas"/>
 
-                <TableColumn fx:id="colInicio"
-                             text="Inicio"
-                             prefWidth="80"/>
+                <Button fx:id="btnReservadas"
+                        text="Reservadas"
+                        onAction="#filtrarReservadas"/>
 
-                <TableColumn fx:id="colFin"
-                             text="Fin"
-                             prefWidth="80"/>
+            </HBox>
 
-                <TableColumn fx:id="colPlazas"
-                             text="Plazas"
-                             prefWidth="100"/>
+            <TableView fx:id="tablaSesiones" prefHeight="500">
+                <columns>
+                    <TableColumn fx:id="colClase" text="Clase" prefWidth="150"/>
+                    <TableColumn fx:id="colFecha" text="Fecha" prefWidth="120"/>
+                    <TableColumn fx:id="colInicio" text="Inicio" prefWidth="80"/>
+                    <TableColumn fx:id="colFin" text="Fin" prefWidth="80"/>
+                    <TableColumn fx:id="colPlazas" text="Plazas" prefWidth="100"/>
+                    <TableColumn fx:id="colTipo" text="Tipo" prefWidth="120"/>
+                </columns>
+            </TableView>
 
-            </columns>
-
-        </TableView>
+        </VBox>
     </center>
 
 </BorderPane>

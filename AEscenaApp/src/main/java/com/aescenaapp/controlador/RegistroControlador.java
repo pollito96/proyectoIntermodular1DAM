@@ -4,8 +4,10 @@ import com.aescenaapp.modelo.Usuario;
 import com.aescenaapp.servicio.UsuarioServicio;
 import com.aescenaapp.util.GestorNavegacion;
 import com.aescenaapp.util.ValidacionUtil;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.util.Duration;
 
 public class RegistroControlador {
 
@@ -94,20 +96,28 @@ public class RegistroControlador {
         u.setNombre(nombre);
         u.setPass(pass);
 
-        boolean registrado = usuarioServicio.registrar(u);
+        String resultado = usuarioServicio.registrarUsuario(u);
 
-        if (registrado) {
-            errorLabel.setStyle("-fx-text-fill: green;");
-            errorLabel.setText("Usuario registrado correctamente");
+        switch (resultado) {
+            case "EMAIL_EXISTE":
+                errorLabel.setStyle("-fx-text-fill: red;");
+                errorLabel.setText("El email ya esta registrado");
+                break;
+            case "OK":
+                errorLabel.setStyle("-fx-text-fill: green;");
+                errorLabel.setText("Usuario registrado correctamente, redirigiendo al login...");
 
-            emailField.clear();
-            nombreField.clear();
-            passwordField.clear();
-
-        } else {
-            errorLabel.setStyle("-fx-text-fill: red;");
-            errorLabel.setText("Error al registrar usuario");
+                PauseTransition delay = new PauseTransition(Duration.seconds(2));
+                delay.setOnFinished(event -> {
+                    redireccionLogin();
+                });
+                delay.play();
+                break;
+            default:
+                errorLabel.setStyle("-fx-text-fill: red;");
+                errorLabel.setText("Error al registrar usuario");
         }
+
     }
 
     @FXML

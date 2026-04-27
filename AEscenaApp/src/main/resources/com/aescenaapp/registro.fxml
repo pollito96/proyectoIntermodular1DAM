@@ -33,6 +33,7 @@
         <HBox>
             <Label text="Email" style="-fx-text-fill: white;" />
             <Label fx:id="emailErrorLabel"
+                       wrapText="true"
                        textFill="#e74c3c"
                        style="-fx-padding: 5;" />
         </HBox>
@@ -44,6 +45,7 @@
         <HBox>
             <Label text="Nombre" style="-fx-text-fill: white;" />
             <Label fx:id="nombreErrorLabel"
+                   wrapText="true"
                    textFill="#e74c3c"
                    style="-fx-padding: 5;" />
         </HBox>
@@ -55,6 +57,7 @@
         <HBox>
             <Label text="Contraseña" style="-fx-text-fill: white;" />
             <Label fx:id="passwordErrorLabel"
+                   wrapText="true"
                    textFill="#e74c3c"
                    style="-fx-padding: 5;" />
         </HBox>
@@ -84,6 +87,7 @@
         </HBox>
 
         <Label fx:id="errorLabel"
+               wrapText="true"
                textFill="#e74c3c"
                style="-fx-padding: 5;" />
 

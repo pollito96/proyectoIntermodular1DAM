@@ -22,5 +22,6 @@ public class SesionDTO {
 
         private String nombreClase;
         private String nombreProfesor;
+        private String tipo;
 
 }

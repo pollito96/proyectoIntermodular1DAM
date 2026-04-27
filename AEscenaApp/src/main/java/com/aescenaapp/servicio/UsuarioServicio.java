@@ -17,8 +17,15 @@ public class UsuarioServicio {
         return usuarioDAO.login(email, pass);
     }
 
-    public boolean registrar(Usuario u) {
-        return usuarioDAO.registrarUsuario(u);
+    public String registrarUsuario(Usuario usuario) {
+
+        if (usuarioDAO.emailExiste(usuario.getEmail())) {
+            return "EMAIL_EXISTE";
+        }
+
+        boolean insert = usuarioDAO.registrarUsuario(usuario);
+
+        return insert ? "OK" : "ERROR";
     }
 
     public void asignarProfesor(int idUsuario) {

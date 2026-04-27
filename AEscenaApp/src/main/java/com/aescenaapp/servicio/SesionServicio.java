@@ -12,31 +12,32 @@ public class SesionServicio {
 
     private final SesionDAO sesionDAO = new SesionDAO();
 
-    public boolean crearSesion(Sesion s) {
+    public String crearSesion(Sesion s) {
 
-        if (s == null) return false;
+        if (s == null) return "SESION_NULL";
 
-        if (s.getFecha() == null) return false;
+        if (s.getFecha() == null) return "FECHA_NULL";
 
-        if (s.getHoraInicio() == null || s.getHoraFin() == null) return false;
+        if (s.getHoraInicio() == null || s.getHoraFin() == null) return "HORAS_NULL";
 
-        if (s.getPlazasTotales() <= 0) return false;
+        if (s.getPlazasTotales() <= 0) return "PLAZAS_INVALIDAS";
 
-        if (s.getIdClase() <= 0) return false;
+        if (s.getIdClase() <= 0) return "CLASE_INVALIDA";
 
-        if (s.getIdUsuario() <= 0) return false;
+        if (s.getIdUsuario() <= 0) return "USUARIO_INVALIDO";
 
-        if (s.getHoraFin().isBefore(s.getHoraInicio())) return false;
+        if (s.getHoraFin().isBefore(s.getHoraInicio())) return "HORARIO_INVALIDO";
 
-        return sesionDAO.insertarSesion(s);
+        boolean ok = sesionDAO.insertarSesion(s);
+
+        return ok ? "OK" : "ERROR_BD";
     }
 
-    public List<Sesion> obtenerSesionesPorProfesor(int idUsuario) {
+    public List<SesionDTO> obtenerSesionesPorProfesor(int idUsuario) {
         return sesionDAO.obtenerSesionesPorProfesor(idUsuario);
     }
 
-
-    public List<Sesion> obtenerSesionesReservadas(int idUsuario) {
+    public List<SesionDTO> obtenerSesionesReservadas(int idUsuario) {
         return sesionDAO.obtenerSesionesReservadas(idUsuario);
     }
 
