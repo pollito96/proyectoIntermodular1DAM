@@ -6,17 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4d987062-0bd6-4fd5-a9e1-378e06ee110d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/DTO/SesionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/DTO/SesionDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/ClasesProfeControlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/ClasesProfeControlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/RegistroControlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/RegistroControlador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/SesionControlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/SesionControlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/AdminControlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/controlador/AdminControlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/ReservaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/ReservaDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/SesionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/SesionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/dao/UsuarioDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/servicio/SesionServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/servicio/SesionServicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aescenaapp/servicio/UsuarioServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aescenaapp/servicio/UsuarioServicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/aescenaapp/registro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/aescenaapp/registro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/aescenaapp/sesionPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/aescenaapp/sesionPanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/aescenaapp/adminPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/aescenaapp/adminPanel.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

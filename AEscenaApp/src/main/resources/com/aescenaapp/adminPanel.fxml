@@ -29,6 +29,11 @@
                       onAction="#verProfesores"
                       maxWidth="150" />
 
+        <Button fx:id="btnExportarXML"
+                text="Exportar sesiones a XML"
+                onAction="#exportarXML"
+                style="-fx-padding: 8;" />
+
     </HBox>
 
     <TableView fx:id="tablaUsuarios"

@@ -4,8 +4,6 @@ import com.aescenaapp.DTO.SesionDTO;
 import com.aescenaapp.dao.SesionDAO;
 import com.aescenaapp.modelo.Sesion;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.List;
 
 public class SesionServicio {
@@ -44,4 +42,5 @@ public class SesionServicio {
     public List<SesionDTO> obtenerSesionesDisponibles(int idUsuario) {
         return sesionDAO.obtenerSesionesDisponibles(idUsuario);
     }
+
 }

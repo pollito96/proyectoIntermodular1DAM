@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<reporteSesiones>
+    <sesion>
+        <id>1</id>
+        <fecha>2026-04-28</fecha>
+        <horaInicio>16:00:00</horaInicio>
+        <horaFin>16:30:00</horaFin>
+        <plazas>9</plazas>
+        <clase>Baile irlandes</clase>
+        <profesor>admin</profesor>
+        <reservas>
+            <reserva>
+                <idUsuario>2</idUsuario>
+            </reserva>
+            <reserva>
+                <idUsuario>3</idUsuario>
+            </reserva>
+        </reservas>
+    </sesion>
+    <sesion>
+        <id>2</id>
+        <fecha>2026-04-23</fecha>
+        <horaInicio>13:30:00</horaInicio>
+        <horaFin>14:00:00</horaFin>
+        <plazas>25</plazas>
+        <clase>Baile irlandes</clase>
+        <profesor>admin</profesor>
+        <reservas>
+            <reserva>
+                <idUsuario>2</idUsuario>
+            </reserva>
+            <reserva>
+                <idUsuario>3</idUsuario>
+            </reserva>
+            <reserva>
+                <idUsuario>4</idUsuario>
+            </reserva>
+            <reserva>
+                <idUsuario>5</idUsuario>
+            </reserva>
+        </reservas>
+    </sesion>
+    <sesion>
+        <id>4</id>
+        <fecha>2026-04-24</fecha>
+        <horaInicio>11:30:00</horaInicio>
+        <horaFin>12:00:00</horaFin>
+        <plazas>32</plazas>
+        <clase>Baile urbano</clase>
+        <profesor>profe</profesor>
+        <reservas>
+            <reserva>
+                <idUsuario>2</idUsuario>
+            </reserva>
+            <reserva>
+                <idUsuario>4</idUsuario>
+            </reserva>
+        </reservas>
+    </sesion>
+    <sesion>
+        <id>3</id>
+        <fecha>2026-04-28</fecha>
+        <horaInicio>17:00:00</horaInicio>
+        <horaFin>17:30:00</horaFin>
+        <plazas>25</plazas>
+        <clase>Flamenco Funk</clase>
+        <profesor>admin</profesor>
+        <reservas>
+            <reserva>
+                <idUsuario>2</idUsuario>
+            </reserva>
+            <reserva>
+                <idUsuario>3</idUsuario>
+            </reserva>
+            <reserva>
+                <idUsuario>4</idUsuario>
+            </reserva>
+            <reserva>
+                <idUsuario>5</idUsuario>
+            </reserva>
+        </reservas>
+    </sesion>
+</reporteSesiones>

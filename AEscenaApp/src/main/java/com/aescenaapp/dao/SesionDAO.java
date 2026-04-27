@@ -176,11 +176,9 @@ public class SesionDAO {
                     s.setHoraFin(rs.getTime("hora_fin").toLocalTime());
                     s.setPlazasTotales(rs.getInt("plazas_totales"));
 
-                    // estos vienen de JOIN
                     s.setNombreClase(rs.getString("nombre_clase"));
                     s.setNombreProfesor(rs.getString("nombre_profesor"));
 
-                    // puede venir o no según query
                     s.setTipo(rs.getString("tipo"));
 
                     lista.add(s);
@@ -213,4 +211,45 @@ public class SesionDAO {
 
         return false;
     }
+
+    public List<SesionDTO> obtenerSesionesDTO() {
+
+        String sql = """
+        SELECT s.id_sesion, s.fecha, s.hora_inicio, s.hora_fin,
+               s.plazas_totales,
+               c.nombre AS nombre_clase,
+               u.nombre AS nombre_profesor
+        FROM SESION s
+        JOIN CLASE c ON s.id_clase = c.id_clase
+        JOIN USUARIO u ON s.id_usuario = u.id_usuario
+    """;
+
+        List<SesionDTO> lista = new ArrayList<>();
+
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+
+                SesionDTO s = new SesionDTO();
+
+                s.setIdSesion(rs.getInt("id_sesion"));
+                s.setFecha(rs.getDate("fecha").toLocalDate());
+                s.setHoraInicio(rs.getTime("hora_inicio").toLocalTime());
+                s.setHoraFin(rs.getTime("hora_fin").toLocalTime());
+                s.setPlazasTotales(rs.getInt("plazas_totales"));
+                s.setNombreClase(rs.getString("nombre_clase"));
+                s.setNombreProfesor(rs.getString("nombre_profesor"));
+
+                lista.add(s);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
+
 }

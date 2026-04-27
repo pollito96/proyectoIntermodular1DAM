@@ -1,6 +1,7 @@
 package com.aescenaapp.controlador;
 
 import com.aescenaapp.modelo.Usuario;
+import com.aescenaapp.servicio.ExportServicio;
 import com.aescenaapp.servicio.UsuarioServicio;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -22,8 +23,11 @@ public class AdminControlador {
 
     @FXML private ToggleButton btnClientes;
     @FXML private ToggleButton btnProfesores;
+    @FXML private Button btnExportarXML;
+
 
     private final UsuarioServicio usuarioServicio = new UsuarioServicio();
+    private final ExportServicio exportServicio = new ExportServicio();
 
     private String modoActual = "CLIENTES";
 
@@ -140,6 +144,30 @@ public class AdminControlador {
             verClientes();
         } else {
             verProfesores();
+        }
+    }
+
+    @FXML
+    private void exportarXML() {
+
+        try {
+            exportServicio.exportarSesionesXML();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Exportación XML");
+            alert.setHeaderText(null);
+            alert.setContentText("XML exportado correctamente");
+            alert.showAndWait();
+
+        } catch (Exception e) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Error al exportar XML");
+            alert.showAndWait();
+
+            e.printStackTrace();
         }
     }
 }
