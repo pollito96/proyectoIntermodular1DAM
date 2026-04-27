@@ -30,11 +30,11 @@ Se adjuntan capturas que demuestran el correcto funcionamiento del sistema de va
 
 ### XML validado correctamente contra el XSD
 
-![Validación correcta](docs/assets/images/Validacion_Correcta.png)
+![Validación correcta](docs/assets/capturas_validacion/Validacion_Correcta.png)
 
 ### Ejemplo de error detectado por el XSD
 
-![Validación fallida](docs/assets/images/Validacion_Fallida.png)
+![Validación fallida](docs/assets/capturas_validacion/Validacion_Fallida.png)
 
 ---
 
