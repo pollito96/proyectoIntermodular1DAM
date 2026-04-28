@@ -43,6 +43,16 @@ Aquí está el propósito final de la aplicacción, que los clientes puedan hace
 
 ---
 
+## Diagramas 
+
+![Modelo E/R](./diagrams/Modelo_ER.png)
+
+---
+
+![Modelo E/R](./diagrams/ModeloRelacional.png)
+
+
 ## Conclusion
 
 La idea al principio era hacer un diseño relatívamente simple pero al plantearlo de cara a una empresa real, me vi obligado a ir añadiendo una cierta complejidad y capas extra en la DB que al principio no tuve en cuenta.
+
