@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d987062-0bd6-4fd5-a9e1-378e06ee110d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/proyectoIntermodular1DAM.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/EntornosDeDesarrollo/placeholderHistorialDeCommits.TXT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/Sistemas/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/Sistemas/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="4d987062-0bd6-4fd5-a9e1-378e06ee110d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +50,7 @@
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/DAM 1º/proyectoIntermodular1DAM/AEscenaApp/src/main/resources/com/aescenaapp",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }

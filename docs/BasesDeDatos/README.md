@@ -1,8 +1,8 @@
-    # AEscena - Diseño de DB
+# AEscena - Diseño de DB
 
 ## Objetivo del sistema
 
-Uno de los objetivos especificos del diseño era que los usuarios pudiesen tener varios roles simultaneamente, de ahi que haya usado herencia para diferenciar lso diferentes roles y si un tabla intermedia, tambien posibilitando asi la posible futura escalabilidad a personal de diferente tipo en la empresa.
+Uno de los objetivos especificos del diseño era que los usuarios pudiesen tener varios roles simultaneamente, de ahí que no haya usado herencia para diferenciar los diferentes roles y sí un tabla intermedia, también posibilitando así, la posible futura escalabilidad a personal de diferente tipo en la empresa.
 
 Más allá de eso es un sistema de creacion de clases, sesiones y reservas para una escuela de danza.
 

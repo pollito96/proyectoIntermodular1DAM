@@ -21,7 +21,7 @@ VALUES
 (2, 2),
 (3, 1);
 
-INSERT INTO CLASE (nombre, descripcion, nivel) VALUES
+INSERT INTO CLASE (nombre, descripcion) VALUES
 ('Baile urbano', 'Coreografías modernas con hip hop y street dance'),
 ('Salsa', 'Baile latino en pareja con pasos básicos y giros'),
 ('Bachata', 'Ritmos caribeños con movimientos suaves'),
